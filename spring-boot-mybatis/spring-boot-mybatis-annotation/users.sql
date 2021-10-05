@@ -3,7 +3,7 @@ Navicat MySQL Data Transfer
 
 Source Server         : 本地
 Source Server Version : 50505
-Source Host           : localhost:3306
+Source Host           : 47.106.145.147:3360
 Source Database       : test1
 
 Target Server Type    : MYSQL
