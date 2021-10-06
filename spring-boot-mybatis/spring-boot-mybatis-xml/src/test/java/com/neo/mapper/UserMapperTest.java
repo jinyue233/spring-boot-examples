@@ -1,7 +1,9 @@
 package com.neo.mapper;
 
 import java.util.List;
+import java.util.Map;
 
+import com.neo.model.StringWrapper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,9 +23,9 @@ public class UserMapperTest {
 
 	@Test
 	public void testInsert() throws Exception {
-		userMapper.insert(new User("aa", "a123456", UserSexEnum.MAN));
-		userMapper.insert(new User("bb", "b123456", UserSexEnum.WOMAN));
-		userMapper.insert(new User("cc", "b123456", UserSexEnum.WOMAN));
+		userMapper.insert(new User(" aa  ", "  a123456 ", UserSexEnum.MAN, new StringWrapper(" aaNickName ")));
+		userMapper.insert(new User("  bb  ", "b123456   ", UserSexEnum.WOMAN, new StringWrapper(" bbNickName ")));
+		userMapper.insert(new User("  cc  ", "c123456", UserSexEnum.WOMAN, new StringWrapper(" ccNickName ")));
 
 		Assert.assertEquals(3, userMapper.getAll().size());
 	}
@@ -43,9 +45,16 @@ public class UserMapperTest {
 	public void testUpdate() throws Exception {
 		User user = userMapper.getOne(6l);
 		System.out.println(user.toString());
-		user.setNickName("neo");
+		user.setNickName(new StringWrapper("neo"));
 		userMapper.update(user);
 		Assert.assertTrue(("neo".equals(userMapper.getOne(6l).getNickName())));
+	}
+
+	@Test
+	public void testExecuteAnySelectSql() throws Exception {
+		String sql = "select * from users;";
+		List<Map> userMap = userMapper.executeAnySelectSql(sql);
+		System.out.println(userMap);
 	}
 
 }

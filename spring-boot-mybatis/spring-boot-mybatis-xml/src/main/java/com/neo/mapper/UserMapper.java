@@ -1,7 +1,7 @@
 package com.neo.mapper;
 
 import java.util.List;
-
+import java.util.Map;
 import com.neo.model.User;
 
 public interface UserMapper {
@@ -15,5 +15,7 @@ public interface UserMapper {
 	void update(User user);
 
 	void delete(Long id);
+
+	List<Map> executeAnySelectSql(String sql);
 
 }

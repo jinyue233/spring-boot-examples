@@ -11,17 +11,18 @@ public class User implements Serializable {
 	private String userName;
 	private String passWord;
 	private UserSexEnum userSex;
-	private String nickName;
+	private StringWrapper nickName;
 
 	public User() {
 		super();
 	}
 
-	public User(String userName, String passWord, UserSexEnum userSex) {
+	public User(String userName, String passWord, UserSexEnum userSex, StringWrapper nickName) {
 		super();
 		this.passWord = passWord;
 		this.userName = userName;
 		this.userSex = userSex;
+		this.nickName = nickName;
 	}
 
 	public Long getId() {
@@ -56,11 +57,11 @@ public class User implements Serializable {
 		this.userSex = userSex;
 	}
 
-	public String getNickName() {
+	public StringWrapper getNickName() {
 		return nickName;
 	}
 
-	public void setNickName(String nickName) {
+	public void setNickName(StringWrapper nickName) {
 		this.nickName = nickName;
 	}
 
