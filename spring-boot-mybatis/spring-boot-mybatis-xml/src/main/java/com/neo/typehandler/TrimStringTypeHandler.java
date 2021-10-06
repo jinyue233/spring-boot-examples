@@ -14,7 +14,8 @@ import java.sql.SQLException;
  *         Mybatis内置的StringTypeHandler，因为只要从数据库查出来的是字符串，那么jdbcType默认为CHAR类型，此时还是会取出Mybatis内置的
  *         StringTypeHandler来处理，而不是覆盖的TrimStringTypeHandler（因为对应VARCHAR）
  *      4，当然，某个字段指定对应的typeHandler也会生效
- *      TODO QUESTION:为何${value}的执行sql默认是varchar？注意，resultMap对${value}无效，因为起作用的是resultType。为何同事能指定LongTypeHandler有效呢
+ *      TODO QUESTION:为何${value}的执行sql默认是varchar？注意，resultMap对${value}无效，因为起作用的是resultType。
+ *      TODO 为何同事能指定LongTypeHandler有效呢？为何自己在公司用两个同样的trimStringTypeHandler，默认的都是同一个，如何指定默认的呢
  */
 @MappedTypes(String.class)
 @MappedJdbcTypes({JdbcType.VARCHAR})
