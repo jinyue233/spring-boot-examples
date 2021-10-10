@@ -20,7 +20,7 @@ public class UserMapperTest {
 
 	@Autowired
 	private UserMapper userMapper;
-
+	// TODO QUESTION:为何结合spring这里不用sqlSession.commit也会提交呢？而单独使用Mybatis需要sqlSession.commit呢
 	@Test
 	public void testInsert() throws Exception {
 		userMapper.insert(new User(" aa  ", "  a123456 ", UserSexEnum.MAN, new StringWrapper(" aaNickName ")));
