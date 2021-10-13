@@ -15,6 +15,10 @@ public class UserController {
 	
 	@Autowired
 	private UserMapper userMapper;
+
+	public UserController() {
+        System.out.println("================UserController====================");
+    }
 	
 	@RequestMapping("/getUsers")
 	public List<User> getUsers() {
