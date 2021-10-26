@@ -28,6 +28,21 @@ public class UserMapperTest {
 
 
 	@Test
+	public void testSaveUserWithCatchException() throws Exception {
+		userService.saveUserWithCatchException(new User(" 987654  ", "  987654 ", UserSexEnum.MAN, new StringWrapper(" 987654 ")));
+	}
+
+	@Test
+	public void testSaveUserWithCatchException2() throws Exception {
+		userService.saveUserWithCatchException2(new User(" 987654  ", "  987654 ", UserSexEnum.MAN, new StringWrapper(" 987654 ")));
+	}
+
+	@Test
+	public void testSaveUserWithCatchException3() throws Exception {
+		userService.saveUserWithCatchException3(new User(" 987654  ", "  987654 ", UserSexEnum.MAN, new StringWrapper(" 987654 ")));
+	}
+
+	@Test
 	public void testSaveAndUpdate() throws Exception {
 		userService.saveUser(new User(" 987654  ", "  987654 ", UserSexEnum.MAN, new StringWrapper(" 987654 ")));
 	}
