@@ -41,8 +41,8 @@
        	<if test="userName != null">userName = #{userName},</if>
        	<if test="passWord != null">passWord = #{passWord},</if>
        	nick_name = #{nickName}
-       WHERE 
-       		id = #{id}
+       WHERE
+        passWord = #{passWord}
     </update>
     
     <delete id="delete" parameterType="java.lang.Long" >
