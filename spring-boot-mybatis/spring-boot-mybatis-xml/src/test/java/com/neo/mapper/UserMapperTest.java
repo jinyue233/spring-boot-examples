@@ -28,22 +28,32 @@ public class UserMapperTest {
 
 
 	@Test
-	public void testSaveUserWithCatchException() throws Exception {
+	public void testSaveUserWithCatchException(){
 		userService.saveUserWithCatchException(new User(" 987654  ", "  987654 ", UserSexEnum.MAN, new StringWrapper(" 987654 ")));
 	}
 
 	@Test
-	public void testSaveUserWithCatchException2() throws Exception {
+	public void testSaveUserWithCatchException2(){
 		userService.saveUserWithCatchException2(new User(" 987654  ", "  987654 ", UserSexEnum.MAN, new StringWrapper(" 987654 ")));
 	}
 
 	@Test
-	public void testSaveUserWithCatchException3() throws Exception {
+	public void testSaveUserWithCatchException3(){
 		userService.saveUserWithCatchException3(new User(" 987654  ", "  987654 ", UserSexEnum.MAN, new StringWrapper(" 987654 ")));
 	}
 
 	@Test
-	public void testSaveAndUpdate() throws Exception {
+	public void testSaveUserWithCatchException4(){
+		userService.saveUserWithCatchException4(new User(" 987654  ", "  987654 ", UserSexEnum.MAN, new StringWrapper(" 987654 ")));
+	}
+
+	@Test
+	public void testSaveUserWithCatchException5(){
+		userService.saveUserWithCatchException5(new User(" 987654  ", "  987654 ", UserSexEnum.MAN, new StringWrapper(" 987654 ")));
+	}
+
+	@Test
+	public void testSaveAndUpdate(){
 		userService.saveUser(new User(" 987654  ", "  987654 ", UserSexEnum.MAN, new StringWrapper(" 987654 ")));
 	}
 
@@ -51,7 +61,7 @@ public class UserMapperTest {
 	@Test
 	@Transactional
 	@Rollback(value = false)
-	public void testInsert() throws Exception {
+	public void testInsert(){
 		userMapper.insert(new User(" 11  ", "  a123456 ", UserSexEnum.MAN, new StringWrapper(" aaNickName ")));
 		userMapper.insert(new User("  22  ", "b123456   ", UserSexEnum.WOMAN, new StringWrapper(" bbNickName ")));
 		userMapper.insert(new User("  33  ", "c123456", UserSexEnum.WOMAN, new StringWrapper(" ccNickName ")));
@@ -60,7 +70,7 @@ public class UserMapperTest {
 	}
 
 	@Test
-	public void testQuery() throws Exception {
+	public void testQuery(){
 		List<User> users = userMapper.getAll();
 		if(users==null || users.size()==0){
 			System.out.println("is null");
@@ -71,7 +81,7 @@ public class UserMapperTest {
 	
 	
 	@Test
-	public void testUpdate() throws Exception {
+	public void testUpdate(){
 		User user = userMapper.getOne(6l);
 		System.out.println(user.toString());
 		user.setNickName(new StringWrapper("neo"));
@@ -80,7 +90,7 @@ public class UserMapperTest {
 	}
 
 	@Test
-	public void testExecuteAnySelectSql() throws Exception {
+	public void testExecuteAnySelectSql(){
 		String sql = "select * from users;";
 		List<Map> userMap = userMapper.executeAnySelectSql(sql);
 		System.out.println(userMap);
