@@ -57,6 +57,11 @@ public class UserMapperTest {
 		userService.saveUser(new User(" 987654  ", "  987654 ", UserSexEnum.MAN, new StringWrapper(" 987654 ")));
 	}
 
+	@Test
+	public void testSaveWithoutException(){
+		userService.saveWithoutException(new User(" 987654  ", "  987654 ", UserSexEnum.MAN, new StringWrapper(" 987654 ")));
+	}
+
 	// TODO QUESTION:为何结合spring这里不用sqlSession.commit也会提交呢？而单独使用Mybatis需要sqlSession.commit呢
 	@Test
 	@Transactional

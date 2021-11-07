@@ -191,6 +191,9 @@ public class UserService {
     public void delete(@PathVariable("id") Long id) {
     	userMapper.delete(id);
     }
-    
-    
+
+	@Transactional
+	public void saveWithoutException(User user) {
+		userMapper.insert(user);
+	}
 }
